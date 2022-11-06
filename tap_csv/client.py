@@ -6,6 +6,7 @@ from typing import Iterable, List, Optional
 
 from singer_sdk import typing as th
 from singer_sdk.streams import Stream
+import pandas as pd
 
 
 class CSVStream(Stream):
@@ -14,7 +15,7 @@ class CSVStream(Stream):
     file_paths: List[str] = []
 
     def __init__(self, *args, **kwargs):
-        """Init CSVStram."""
+        """Init CSVStream."""
         # cache file_config so we dont need to go iterating the config list again later
         self.file_config = kwargs.pop("file_config")
         super().__init__(*args, **kwargs)
@@ -27,12 +28,19 @@ class CSVStream(Stream):
         require partitioning and should ignore the `context` argument.
         """
         for file_path in self.get_file_paths():
-            headers: List[str] = []
-            for row in self.get_rows(file_path):
-                if not headers:
-                    headers = row
-                    continue
-                yield dict(zip(headers, row))
+            df = pd.read_csv(file_path, engine="pyarrow",
+                             delimiter=self.file_config.get("delimiter", ","),
+                             doublequote=self.file_config.get("doublequote", True),
+                             escapechar=self.file_config.get("escapechar", None),
+                             quotechar=self.file_config.get("quotechar", '"'),
+                             skipinitialspace=self.file_config.get("skipinitialspace", False),
+                             encoding_errors=self.file_config.get("encoding_errors", False),
+                             thousands=self.file_config.get("thousands", None),
+                             decimal=self.file_config.get("decimal", "."),
+                             encoding = self.file_config.get("encoding", None))
+            records = df.to_dict(orient="records")
+            for r in records:
+                yield r
 
     def get_file_paths(self) -> list:
         """Return a list of file paths to read.
@@ -78,22 +86,19 @@ class CSVStream(Stream):
             )
         return is_valid
 
-    def get_rows(self, file_path: str) -> Iterable[list]:
-        """Return a generator of the rows in a particular CSV file."""
-        encoding = self.file_config.get("encoding", None)
-        csv.register_dialect(
-            "tap_dialect",
-            delimiter=self.file_config.get("delimiter", ","),
-            doublequote=self.file_config.get("doublequote", True),
-            escapechar=self.file_config.get("escapechar", None),
-            quotechar=self.file_config.get("quotechar", '"'),
-            skipinitialspace=self.file_config.get("skipinitialspace", False),
-            strict=self.file_config.get("strict", False),
-        )
-        with open(file_path, "r", encoding=encoding) as f:
-            reader = csv.reader(f, dialect="tap_dialect")
-            for row in reader:
-                yield row
+    def get_header(self, file_path: str) -> Iterable:
+        df = pd.read_csv(file_path,
+                         delimiter=self.file_config.get("delimiter", ","),
+                         doublequote=self.file_config.get("doublequote", True),
+                         escapechar=self.file_config.get("escapechar", None),
+                         quotechar=self.file_config.get("quotechar", '"'),
+                         skipinitialspace=self.file_config.get("skipinitialspace", False),
+                         encoding_errors=self.file_config.get("encoding_errors", False),
+                         thousands=self.file_config.get("thousands", None),
+                         decimal=self.file_config.get("decimal", "."),
+                         encoding=self.file_config.get("encoding", None),
+                         nrows=100)
+        return df.columns, df.dtypes
 
     @property
     def schema(self) -> dict:
@@ -105,10 +110,8 @@ class CSVStream(Stream):
         properties: List[th.Property] = []
         self.primary_keys = self.file_config.get("keys", [])
 
-        for file_path in self.get_file_paths():
-            for header in self.get_rows(file_path):
-                break
-            break
+        file_path = self.get_file_paths()[0]
+        header, data_types = self.get_header(file_path)
 
         for column in header:
             # Set all types to string

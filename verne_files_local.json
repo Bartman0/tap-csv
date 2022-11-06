@@ -1,0 +1,164 @@
+[
+    {
+        "entity": "Claims_ClaimDetails",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/Claims.ClaimDetails.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Claims_ValidationResult",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/Claims.ValidationResult.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Contract_Clauses",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/Contract.Clauses.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Contract_UnstructuredData",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/Contract.UnstructuredData.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Contract_tw_PremiumBreakdown",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/Contract.tw_PremiumBreakdown.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Contract_tw_TermsAndConditions",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/Contract.tw_TermsAndConditions.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Customers_WithRoleOnContract",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/Customers.WithRoleOnContract.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Marketing_ContractMarketingData",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/Marketing.ContractMarketingData.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Product_VerAnimalCare",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/Product.VerAnimalCare.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Contract_PaymentSchedule",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/contract.PaymentSchedule.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_AdresKoppelTabel",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_AdresKoppelTabel.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_BankGegevens",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_BankGegevens.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_Contracten",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_Contracten.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_LabelWaarde",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_LabelWaarde.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_LinkCustomerClaims",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_LinkCustomerClaims.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_RelatieAdressen",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_RelatieAdressen.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_RelatieGegevens",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_RelatieGegevens.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_RelatieKoppelTabel",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_RelatieKoppelTabel.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_RelatieKoppelTypen",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_RelatieKoppelTypen.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_SchadeGegevens",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_SchadeGegevens.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_SchadeSoorten",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_SchadeSoorten.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_SchadeStatus",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_SchadeStatus.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_SecundaireRolType",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_SecundaireRolType.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "DigiWerken_SecundaryRoleTypeClaims",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.DigiWerken_SecundaryRoleTypeClaims.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "Digiwerken_ContactGegevens",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.Digiwerken_ContactGegevens.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "V_Settings_TussenPersonen",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.V_Settings_TussenPersonen.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    },
+    {
+        "entity": "V_Settings_Volmachten",
+        "path": "/Users/rkooijman/Projects/Petplan/meltano/data/dbo.V_Settings_Volmachten.csv",
+        "delimiter": ";",
+        "encoding": "utf-8-sig"
+    }
+]
